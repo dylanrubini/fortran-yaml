@@ -115,6 +115,15 @@ contains
          ! If the line starts with comment character; move to next.
          if (file%line(1:1)=='#') cycle
 
+         do i=1,len_trim(file%line)
+
+            if (file%line(i:i)=='['.or.file%line(i:i)==']'.or.&
+               file%line(i:i)=='{'.or.file%line(i:i)=='}') goto 10 
+
+             if (file%line(i:i)=='"'.or.file%line(i:i)=='''') goto 10
+
+         end do
+
          ! Search for whitespace delimited comment within the string; remove if found.
          do i=1,len_trim(file%line)-1
             if (is_whitespace(file%line(i:i)).and.file%line(i+1:i+1)=='#') then
@@ -132,6 +141,9 @@ contains
                exit
             end if
          end do
+
+         10 continue
+           
       end do
 
       ! Check for unsupported YAML features.
