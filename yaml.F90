@@ -138,11 +138,11 @@ contains
       do i=1,len_trim(file%line)
          if (file%line(i:i)=='['.or.file%line(i:i)==']'.or.file%line(i:i)=='{'.or.file%line(i:i)=='}') then
             call file%set_error('flow mappings and sequences using []{} are not supported.')
-            return
+            ! return
          end if
          if (file%line(i:i)=='"'.or.file%line(i:i)=='''') then
             call file%set_error('single- and double-quoted strings are not supported.')
-            return
+            ! return
          end if
       end do
 
