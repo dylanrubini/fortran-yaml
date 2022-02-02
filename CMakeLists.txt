@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.0)
 # Create main project.
 project(yaml VERSION 0.1.0 LANGUAGES Fortran)
 
+option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
+
 set(GIT_COMMIT_ID ${yaml_VERSION})
 set(GIT_BRANCH_NAME unknown)
 configure_file(yaml_version.F90.in yaml_version.F90)
