@@ -10,7 +10,7 @@ set(GIT_BRANCH_NAME unknown)
 configure_file(yaml_version.F90.in yaml_version.F90)
 
 add_library(yaml
-            ${CMAKE_INSTALL_PREFIX}/yaml_version.F90
+            ${CMAKE_CURRENT_BINARY_DIR}/yaml_version.F90
             yaml_types.F90
             yaml_settings.F90
             yaml.F90
