@@ -15,11 +15,11 @@ add_library(yaml
             yaml_settings.F90
             yaml.F90
 )
-set_property(TARGET yaml PROPERTY Fortran_MODULE_DIRECTORY "${CMAKE_INSTALL_PREFIX}/modules")
+set_property(TARGET yaml PROPERTY Fortran_MODULE_DIRECTORY "${CMAKE_INSTALL_PREFIX}/include")
 target_include_directories(yaml
    PUBLIC
       $<INSTALL_INTERFACE:include>
-      $<BUILD_INTERFACE:${CMAKE_INSTALL_PREFIX}/modules>
+      $<BUILD_INTERFACE:${CMAKE_INSTALL_PREFIX}/include>
 )
 
 add_executable(test_yaml EXCLUDE_FROM_ALL
