@@ -10,16 +10,16 @@ set(GIT_BRANCH_NAME unknown)
 configure_file(yaml_version.F90.in yaml_version.F90)
 
 add_library(yaml
-            ${CMAKE_CURRENT_BINARY_DIR}/yaml_version.F90
+            ${CMAKE_INSTALL_PREFIX}/yaml_version.F90
             yaml_types.F90
             yaml_settings.F90
             yaml.F90
 )
-set_property(TARGET yaml PROPERTY Fortran_MODULE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/include")
+set_property(TARGET yaml PROPERTY Fortran_MODULE_DIRECTORY "${CMAKE_INSTALL_PREFIX}/modules")
 target_include_directories(yaml
    PUBLIC
       $<INSTALL_INTERFACE:include>
-      $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+      $<BUILD_INTERFACE:${CMAKE_INSTALL_PREFIX}/modules>
 )
 
 add_executable(test_yaml EXCLUDE_FROM_ALL
